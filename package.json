@@ -3,7 +3,7 @@
     "version": "5.0.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
+        "dev": "PORT=3344 next dev",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
@@ -21,6 +21,8 @@
         "@react-spring/web": "^9.7.3",
         "negotiator": "0.6.3",
         "next": "latest",
+        "next-video": "^0.14.1",
+        "next-videos": "^1.4.1",
         "react": "latest",
         "react-dom": "latest",
         "react-spring-carousel": "^2.0.19"

@@ -107,15 +107,15 @@ interface IThemeProps {
 
 export const THEME: IThemeProps = {
   PRIMARY: {
-    DARK: common.white,
+    DARK: "#4ECCA3",
     LIGHT: "#e89a00",
   },
   SECONDARY: {
-    DARK: common.white,
+    DARK: "#4ECCA3",
     LIGHT: "#e89a00",
   },
   TEXT: {
-    DARK: common.white,
+    DARK: "#4ECCA3",
     LIGHT: "#171717",
   },
   SUBTITLE: {

@@ -14,7 +14,6 @@ import t from '@/dictionaries/en.json';
 import { APP_SIGN_UP_URL, ROUTE } from '@/utils/constants';
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import ThemeModeWrapper from '@/theme/ThemeModeWrapper';
-import Carousel from '@/components/Carousel';
 
 
 export default function HomePage() {
@@ -22,148 +21,22 @@ export default function HomePage() {
 
   return (
     <>
-      <SectionContainer withoutAnimation>
-        <Grid container sx={{ justifyContent: 'space-between', rowGap: 2 }}>
-          <Grid item container md={6} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center', gap: 3 }}>
+      <SectionContainer withoutAnimation sx={{ backgroundColor: 'transparent', height: 'calc(100vh - 120px)', alignItems: 'center' }} disablePaddingY mode='dark'>
+        <Grid container sx={{ justifyContent: 'space-between', rowGap: 2, position: 'relative' }}>
+          <Grid item container md={12} sm={12}
+            sx={{ flexDirection: 'column', justifyContent: 'center', gap: 3, position: "relative", backgroundColor: '#635f5f70', paddingY: 3,paddingX: 2 }}
+          >
             <Typography variant="h1">
-              {t.homePage.hero.titleA} <span style={{ color: theme.palette.info.main }}>{t.homePage.hero.titleB}</span> {t.homePage.hero.titleC}
+              Some text here <span style={{ color: theme.palette.info.main }}>and some with color</span>
             </Typography>
             <Typography variant="subtitle1">
-
-              {t.homePage.hero.subtitle}
+              Subtitle comes here
             </Typography>
             <Button variant='contained' href={APP_SIGN_UP_URL} target="_blank">{t.homePage.hero.button}</Button>
           </Grid>
 
-          <Grid item container md={5} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center' }}>
-            <Box
-              component="img"
-              sx={{ maxWidth: { xs: 1 } }}
-              src="/img/undraw_home_run_acyh.svg"
-            />
-          </Grid>
-        </Grid>
-      </SectionContainer>
-
-      <Carousel />
-
-      <SectionContainer mode='dark'>
-        <Grid container sx={{ justifyContent: 'space-between', rowGap: 2 }}>
-          <Grid item container xs={12} sm={12} sx={{ justifyContent: 'center' }}>
-            <Typography variant="h1">
-              {t.homePage.howWeSupport.titleA} <span style={{ color: theme.palette.info.main }}>{t.homePage.howWeSupport.titleB}</span>
-            </Typography>
-          </Grid>
-
-          <Grid item container xs={12} sm={12} sx={{ justifyContent: 'center' }}>
-            {['planning', 'acquisition', 'delegation'].map(item => {
-              const key = item as 'planning';
-
-              return (
-                <Grid key={key} item container md={4} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center' }}>
-                  <Card variant="outlined" sx={{ height: '100%', marginX: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 1, p: 2, height: '100%' }}>
-                      <Box>
-                        <Stack direction="row" justifyContent="space-between" alignItems="center">
-                          <Typography gutterBottom variant="h5" component="div">
-                            {t.homePage.howWeSupport[key]?.title}
-                          </Typography>
-                        </Stack>
-                        <Typography color="text.secondary" variant="body1">
-                          {t.homePage.howWeSupport[key]?.bodyA}
-                        </Typography>
-                        <Typography color="text.secondary" variant="body1" sx={{ fontStyle: 'italic' }}>
-                          {t.homePage.howWeSupport[key]?.bodyB}
-                        </Typography>
-                      </Box>
-
-                      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                        <Divider />
-                        <Button variant='outlined' href={APP_SIGN_UP_URL} target="_blank">{t.homePage.howWeSupport.button}</Button>
-                      </Box>
-                    </Box>
-                  </Card>
-                </Grid>
-              )
-            })}
-          </Grid>
-        </Grid>
-      </SectionContainer>
-
-      <SectionContainer>
-        <Grid container sx={{ justifyContent: 'space-between', rowGap: 2 }}>
-          <Grid item container md={5} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center' }}>
-            <Box
-              component="img"
-              sx={{ maxWidth: { xs: 1 } }}
-              src="/img/undraw_secure_login_pdn4.svg"
-            />
-          </Grid>
-
-          <Grid item container md={6} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center', gap: 3 }}>
-            <Typography variant="h1">
-              {t.homePage.security.titleA} <span style={{ color: theme.palette.info.main }}>{t.homePage.security.titleB}</span>
-            </Typography>
-            <Typography variant="subtitle1">
-
-              {t.homePage.security.subtitle}
-            </Typography>
-            <Button variant='contained' href={ROUTE.SECURITY}>{t.homePage.security.button}</Button>
-          </Grid>
-        </Grid>
-      </SectionContainer>
-
-
-      <SectionContainer mode='dark'>
-        <Grid container sx={{ justifyContent: 'space-between', rowGap: 2 }}>
-          <Grid item container sx={{ justifyContent: 'center' }}>
-            <Typography variant="h1">
-              <span style={{ color: theme.palette.info.main }}>{t.faqPage.title}</span>
-            </Typography>
-          </Grid>
-
-          <Grid container sx={{ justifyContent: 'space-between', rowGap: 2 }}>
-            <Grid item container xs={12} sm={7} sx={{ justifyContent: 'center' }}>
-              {['q1', 'q2', 'q3'].map((item, index) => {
-                const key = item as 'q1';
-
-                return (
-                  <Box key={key} sx={{ marginBottom: 1 }}>
-                    <Accordion defaultExpanded={index === 0}>
-                      <AccordionSummary
-                        expandIcon={<ExpandMore />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                      >
-                        <Typography variant='h5' sx={{ fontSize: 16 }}>
-                          {t.faqPage[key]?.title}
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Typography variant='body1'>
-                          {t.faqPage[key]?.body}
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                  </Box>
-                )
-              })}
-            </Grid>
-
-            <Grid item container xs={12} sm={4} sx={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column', rowGap: 2 }}>
-              <Box
-                component="img"
-                sx={{ maxWidth: { xs: 1 } }}
-                src="/img/undraw_questions_re_1fy7.svg"
-              />
-
-              <Box>
-                <ThemeModeWrapper mode='light'>
-                  <Button variant='contained' href={ROUTE.FAQ}>{t.faqPage.button}</Button>
-                </ThemeModeWrapper>
-              </Box>
-            </Grid>
-          </Grid>
+          {/* <Grid item container md={5} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center' }}>
+          </Grid> */}
         </Grid>
       </SectionContainer>
     </>

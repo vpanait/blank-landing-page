@@ -18,37 +18,15 @@ export const metadata = {
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
-  const routes = [
-    {
-      label: t.route.security,
-      path: ROUTE.SECURITY,
-    },
-    {
-      label: t.route.faq,
-      path: ROUTE.FAQ,
-    },
-    {
-      label: t.route.about,
-      path: ROUTE.ABOUT.BASE,
-      subItems: [
-        { label: t.route.company, path: ROUTE.ABOUT.COMPANY },
-        { label: t.route.team, path: ROUTE.ABOUT.TEAM },
-      ],
-    },
-  ];
-
-
   return (
     <html lang="en">
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={defaultTheme}>
-            <ThemeProvider theme={defaultTheme}>
-              <CssBaseline />
-              <Navbar routes={routes} mode="dark" />
-              {props.children}
-              <Footer mode={'dark'} />
-            </ThemeProvider>
+            <CssBaseline />
+            <Navbar mode="dark" />
+            {props.children}
+            {/* <Footer mode={'dark'} /> */}
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

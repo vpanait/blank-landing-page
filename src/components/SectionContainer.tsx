@@ -53,9 +53,24 @@ const SectionContainer = ({
         sx={{
           backgroundColor: theme.palette.background.default,
           paddingY: (disablePaddingY ? 0 : `${CONTENT_WRAPPER_PADDING_Y}px`),
+          position: 'relative',
           ...sx
         }}
       >
+        <video
+          // src={"/video/video.mp4"}
+          src={require("../../public/video/waves.mp4")}
+          autoPlay
+          muted
+          loop
+          style={{
+            "position": "absolute",
+            "zIndex": "-1",
+            "height": "100%",
+            "width": "100%",
+            objectFit: "cover"
+          }}
+        />
         <Grid item lg={1.5} md={0.5} sm={0.5} xs={0.25} />
         <Grid item lg={9} md={11} sm={11} xs={11.5} >
           <animated.div ref={ref} style={animatedStyles}>
