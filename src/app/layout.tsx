@@ -24,7 +24,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={defaultTheme}>
             <CssBaseline />
-            <Navbar mode="dark" />
+            {/* <Navbar mode="dark" /> */}
             {props.children}
             {/* <Footer mode={'dark'} /> */}
           </ThemeProvider>

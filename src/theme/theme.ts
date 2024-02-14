@@ -12,44 +12,19 @@ import {
 import { PaletteMode, ThemeOptions } from "@mui/material";
 import "@fontsource/libre-baskerville";
 
-const styleOverrides = (themeParam: Omit<Theme, "components">) => {
-  return `
-    hh1, hh2, hh3, hh4, hh5, hh6 {
-      color: ${themeParam.palette.primary.main};
-    }
-    hh1 {
-      font-size: 89px;
-    }
-    hh2 {
-      font-size: 67px;
-    }
-    hh3 {
-      font-size: 50px;
-    }
-    hh4 {
-      font-size: 38px;
-    }
-    hh5 {
-      font-size: 28px;
-    }
-    hh6 {
-      font-size: 21px;
-    }`;
-};
-
 const theme = createTheme({
   typography: {
     fontFamily: "Libre Baskerville",
     h1: {
-      fontSize: 60,
+      fontSize: 50,
       fontWeight: 700,
-      marginBottom: 16,
     },
     h2: {
       fontSize: 67,
     },
     h3: {
-      fontSize: 50,
+      fontSize: 28.5,
+      fontWeight: 700,
     },
     h4: {
       fontSize: 38,
@@ -62,8 +37,8 @@ const theme = createTheme({
       fontWeight: 700,
     },
     subtitle1: {
-      fontSize: 18,
-      fontWeight: 400,
+      fontSize: 21,
+      fontWeight: 700,
     },
     body1: {
       fontSize: 14,
@@ -99,23 +74,26 @@ interface IThemeProps {
   TEXT: IThemeColors;
   SUBTITLE: IThemeColors;
   BODY: IThemeColors;
+  BACKGROUND: IThemeColors;
   TEXT_ACCENT: IThemeColors;
   MENU_BUTTON_BACKGROUND: IThemeColors;
   MENU_BUTTON_BACKGROUND_HOVER: IThemeColors;
   MENU_BUTTON_BACKGROUND_BORDER: IThemeColors;
+  BUTTON_TEXT: IThemeColors;
+  BUTTON_BG: IThemeColors;
 }
 
 export const THEME: IThemeProps = {
   PRIMARY: {
-    DARK: "#4ECCA3",
+    DARK: "#E6E6E6",
     LIGHT: "#e89a00",
   },
   SECONDARY: {
-    DARK: "#4ECCA3",
+    DARK: "red",
     LIGHT: "#e89a00",
   },
   TEXT: {
-    DARK: "#4ECCA3",
+    DARK: "#E6E6E6",
     LIGHT: "#171717",
   },
   SUBTITLE: {
@@ -130,8 +108,20 @@ export const THEME: IThemeProps = {
     DARK: "#e89a00",
     LIGHT: "#e89a00",
   },
+  BACKGROUND: {
+    DARK: "#1E1E1E",
+    LIGHT: "#e89a00",
+  },
+  BUTTON_TEXT: {
+    DARK: "#1E1E1E",
+    LIGHT: "#e89a00",
+  },
+  BUTTON_BG: {
+    DARK: "#1E1E1E",
+    LIGHT: "#e89a00",
+  },
   MENU_BUTTON_BACKGROUND: {
-    DARK: '#121212',
+    DARK: "#121212",
     LIGHT: "#e89a00",
   },
   MENU_BUTTON_BACKGROUND_HOVER: {
@@ -160,16 +150,16 @@ export const getThemeOptions = (mode: PaletteMode) => {
               primary: grey[900],
               secondary: grey[800],
             },
-            info: {
-              main: THEME.TEXT_ACCENT.LIGHT,
+            background: {
+              default: THEME.BACKGROUND.LIGHT,
             },
           }
         : {
             // palette values for dark mode
             primary: { main: THEME.PRIMARY.DARK },
             secondary: { main: grey[800] },
-            info: {
-              main: THEME.TEXT_ACCENT.DARK,
+            background: {
+              default: THEME.BACKGROUND.DARK,
             },
           }),
     },
@@ -191,7 +181,13 @@ export const getThemeOptions = (mode: PaletteMode) => {
       MuiButton: {
         styleOverrides: {
           root: {
-            fontSize: 16
+            fontSize: 16,
+            borderRadius: 22,
+            minWidth: 200,
+          },
+          contained: {
+            backgroundColor: THEME.PRIMARY[themeMode],
+            color: "#1A1A1A",
           },
         },
       },
@@ -213,6 +209,6 @@ export const getThemeOptions = (mode: PaletteMode) => {
   return themeOptions;
 };
 
-export const defaultTheme = createTheme(getThemeOptions("light"));
+export const defaultTheme = createTheme(getThemeOptions("dark"));
 
 export default theme;

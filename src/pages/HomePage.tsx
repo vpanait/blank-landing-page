@@ -21,22 +21,59 @@ export default function HomePage() {
 
   return (
     <>
-      <SectionContainer withoutAnimation sx={{ backgroundColor: 'transparent', height: 'calc(100vh - 120px)', alignItems: 'center' }} disablePaddingY mode='dark'>
-        <Grid container sx={{ justifyContent: 'space-between', rowGap: 2, position: 'relative' }}>
-          <Grid item container md={12} sm={12}
-            sx={{ flexDirection: 'column', justifyContent: 'center', gap: 3, position: "relative", backgroundColor: '#635f5f70', paddingY: 3,paddingX: 2 }}
+      <SectionContainer withoutAnimation sx={{
+        minHeight: '100vh',
+        alignItems: 'center'
+      }}
+        disablePaddingY
+        mode='dark'
+      >
+        <Grid item container sx={{ minHeight: '100vh', justifyContent: 'space-between', flexDirection: 'column', paddingY: 4 }}>
+          <Grid item container xs={12}
+            sx={{ minHeight: 50, alignItems: 'center', gap: 3 }}
           >
-            <Typography variant="h1">
-              Some text here <span style={{ color: theme.palette.info.main }}>and some with color</span>
+            <Box
+              component="img"
+              sx={{ maxWidth: { xs: 1 } }}
+              src="/img/munnin.png"
+            />
+            <Typography variant="h3">
+              Munnin
             </Typography>
-            <Typography variant="subtitle1">
-              Subtitle comes here
-            </Typography>
-            <Button variant='contained' href={APP_SIGN_UP_URL} target="_blank">{t.homePage.hero.button}</Button>
           </Grid>
 
-          {/* <Grid item container md={5} sm={12} sx={{ flexDirection: 'column', justifyContent: 'center' }}>
-          </Grid> */}
+          <Grid item container md={12} sm={12}
+            sx={{ flexDirection: 'column', justifyContent: 'center', gap: 3 }}
+          >
+            <Typography variant="h1">
+              Munnin is an AI copilot<br />
+              that assists financial advisors<br />
+              in client meetings
+            </Typography>
+            <Typography variant="subtitle1">
+              It transcribes conversations in real-time and generates actionable guidance
+            </Typography>
+
+            <Grid container sx={{ gap: 3 }}>
+              <Button
+                variant='contained'
+                href={APP_SIGN_UP_URL}
+                target="_blank"
+              >
+                Join the waitlist
+              </Button>
+              <Button
+                variant='outlined'
+                href={APP_SIGN_UP_URL}
+                target="_blank"
+              >
+                Get access
+              </Button>
+            </Grid>
+          </Grid>
+
+          <Grid container sx={{ minHeight: 50 }}>
+          </Grid>
         </Grid>
       </SectionContainer>
     </>

@@ -73,13 +73,15 @@ const Navbar = ({ mode = 'light' }: IProps) => {
         disablePaddingY
       >
         <animated.div style={{ paddingBlock: padding }}>
-          <Toolbar variant="dense" sx={{ padding: { xs: 0 } }}>
-            <Container sx={{
-              display: { xs: "none", md: "flex" },
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: { xs: 0 }
-            }}>
+          <Toolbar variant="dense" sx={{ padding: { xs: 0 }, margin: { xs: 0 } }}>
+            <Container
+              maxWidth={false}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: { xs: 0 }
+              }}>
               {logo}
 
               <Button variant="contained">Action Button</Button>
@@ -92,3 +94,4 @@ const Navbar = ({ mode = 'light' }: IProps) => {
 }
 
 export default Navbar;
+
