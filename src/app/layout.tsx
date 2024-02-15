@@ -10,10 +10,10 @@ import { ROUTE } from "@/utils/constants"
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: 'paraplanner.ai',
+  title: 'Muninn',
   openGraph: {
-    title: 'paraplanner.ai',
-    description: 'Delegate admin and planning tasks and focus on more important things',
+    title: 'Muninn',
+    description: 'Munnin is an AI copilot that assists financial advisors in client meetings',
   },
 }
 
